@@ -23,11 +23,7 @@ export default function ClientApp() {
   return (
     <>
       {!isSignedIn && <SignInScreen />}
-      {isSignedIn && (
-        <div className="container">
-          <SignedInScreen />
-        </div>
-      )}
+      {isSignedIn && <SignedInScreen />}
     </>
   );
 }

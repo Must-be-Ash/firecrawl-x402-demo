@@ -18,7 +18,7 @@ export default function SignInScreen() {
         <div className="mb-12">
           <h1 className="text-4xl font-bold text-black mb-4">Firecrawl × Coinbase</h1>
           <TextShimmer className="text-lg text-gray-600 mb-6" duration={2.5}>
-            Web Search with Crypto Payments
+            Web Search using x402 Micropayments
           </TextShimmer>
           <div className="inline-flex items-center bg-orange-50 text-orange-600 px-4 py-2 rounded-full text-sm font-medium border border-orange-200">
             Search the web for just <span className="font-semibold ml-1">~$0.01 USDC</span>

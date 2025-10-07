@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* TextGlitch Component Styles */
+@layer base {
+  :root {
+    --destructive-foreground: oklch(0.577 0.245 27.325);
+  }
+
+  .dark {
+    --card: oklch(0.145 0 0);
+    --popover: oklch(0.145 0 0);
+    --primary: oklch(0.985 0 0);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
+    --sidebar-border: oklch(0.269 0 0);
+    --sidebar-ring: oklch(0.439 0 0);
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -796,6 +816,11 @@ body:not([data-fund-modal-open]) .modal button:not([aria-label*="close"]):not([a
 button { font-size: 14px !important; }
 h1, h2 { margin-top: 20px !important; margin-bottom: 0px !important; }
 
+
+/* Hide scrollbar for textarea */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
