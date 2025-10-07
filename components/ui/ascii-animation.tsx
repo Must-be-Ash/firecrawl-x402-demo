@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { cn } from '@/lib/utils';
 
 interface ASCIIAnimationProps {
@@ -38,7 +38,7 @@ export function ASCIIAnimation({
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  const generateTileContent = () => {
+  const generateTileContent = useCallback(() => {
     const newTileContents = new Map<number, string>();
 
     activeTiles.forEach(tileIndex => {
@@ -61,7 +61,7 @@ export function ASCIIAnimation({
     });
 
     setTileContents(newTileContents);
-  };
+  }, [activeTiles, characters]);
 
   useEffect(() => {
     const startAnimation = () => {
@@ -87,7 +87,7 @@ export function ASCIIAnimation({
         clearInterval(intervalRef.current);
       }
     };
-  }, [activeTiles, characters]);
+  }, [activeTiles, characters, generateTileContent]);
 
   // Convert tile index to grid position
   const getTilePosition = (index: number) => {
@@ -318,7 +318,7 @@ function ASCIIAnimationWithOpacity({
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  const generateTileContent = () => {
+  const generateTileContent = useCallback(() => {
     const newTileContents = new Map<number, string>();
 
     tilesWithOpacity.forEach((_, tileIndex) => {
@@ -337,7 +337,7 @@ function ASCIIAnimationWithOpacity({
     });
 
     setTileContents(newTileContents);
-  };
+  }, [tilesWithOpacity, characters]);
 
   useEffect(() => {
     const startAnimation = () => {
@@ -359,7 +359,7 @@ function ASCIIAnimationWithOpacity({
         clearInterval(intervalRef.current);
       }
     };
-  }, [tilesWithOpacity, characters]);
+  }, [tilesWithOpacity, characters, generateTileContent]);
 
   const getTilePosition = (index: number) => {
     const col = index % gridDimensions.cols;
