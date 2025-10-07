@@ -54,6 +54,14 @@ export default function FAQModal({ isOpen, onClose }: FAQModalProps) {
     {
       question: "How much does each search cost?",
       answer: "Search costs vary based on the number of results requested. Costs are typically a fraction of a cent per search, paid automatically from your wallet balance."
+    },
+    {
+      question: "Can I fork or remix this app?",
+      answer: "Absolutely! This is an open-source demo. You can fork it on GitHub or remix it on Replit to build your own pay-per-use applications.",
+      link: {
+        text: "Remix on Replit",
+        url: "https://replit.com/@ashnouruzi/firecrawl-x402-demo"
+      }
     }
   ];
 

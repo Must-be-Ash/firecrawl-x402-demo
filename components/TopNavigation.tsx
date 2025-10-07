@@ -16,6 +16,20 @@ export default function TopNavigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isFAQOpen, setIsFAQOpen] = useState(false);
 
+  // Add data attribute to body when FundModal is open to control CSS styling
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.setAttribute('data-fund-modal-open', 'true');
+    } else {
+      document.body.removeAttribute('data-fund-modal-open');
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.removeAttribute('data-fund-modal-open');
+    };
+  }, [isModalOpen]);
+
   const copyToClipboard = async () => {
     if (!evmAddress) return;
 
