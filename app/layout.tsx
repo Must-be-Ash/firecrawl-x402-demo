@@ -5,25 +5,25 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "x402",
-  description: "x402 demo - Freepik x Coinbase",
+  description: "x402 demo - Firecrawl x Coinbase",
   authors: [{ name: "must_be_ash" }],
   creator: "must_be_ash",
   publisher: "must_be_ash",
-  metadataBase: new URL("https://freepik-x402.replit.app"),
+  metadataBase: new URL("https://firecrawl-x402.replit.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "402",
-    description: "x402 demo - Freepik x Coinbase",
-    url: "https://freepik-x402.replit.app",
+    description: "x402 demo - Firecrawl x Coinbase",
+    url: "https://firecrawl-x402.replit.app",
     siteName: "402",
     images: [
       {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "x402 demo - Freepik x Coinbase",
+        alt: "x402 demo - Firecrawl x Coinbase",
       },
     ],
     locale: "en_US",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "402 - x402 demo - Freepik x Coinbase",
-    description: "x402 demo - Freepik x Coinbase",
+    title: "402 - x402 demo - Firecrawl x Coinbase",
+    description: "x402 demo - Firecrawl x Coinbase",
     images: ["/og.png"],
     creator: "@must_be_ash",
   },
@@ -74,10 +74,10 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   keywords: [
     "x402",
-    "Freepik",
+    "Firecrawl",
     "Coinbase",
-    "AI",
-    "image generation",
+    "web search",
+    "web scraping",
     "crypto payments",
     "USDC",
     "blockchain",

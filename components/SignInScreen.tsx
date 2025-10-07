@@ -16,12 +16,12 @@ export default function SignInScreen() {
       />
       <div className="relative z-0 text-center max-w-md mx-auto px-6">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold text-black mb-4">Freepik × Coinbase</h1>
+          <h1 className="text-4xl font-bold text-black mb-4">Firecrawl × Coinbase</h1>
           <TextShimmer className="text-lg text-gray-600 mb-6" duration={2.5}>
-            AI Image Generation with Crypto Payments
+            Web Search with Crypto Payments
           </TextShimmer>
-          <div className="inline-flex items-center bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">
-            Generate AI images for just <span className="font-semibold ml-1">$0.08 USDC</span> 
+          <div className="inline-flex items-center bg-orange-50 text-orange-600 px-4 py-2 rounded-full text-sm font-medium border border-orange-200">
+            Search the web for just <span className="font-semibold ml-1">~$0.01 USDC</span>
           </div>
         </div>
         
@@ -36,7 +36,7 @@ export default function SignInScreen() {
         </div>
 
         <div className="text-xs text-gray-400 space-y-2">
-          <p>Powered by Coinbase CDP • Freepik Mystic AI • x402 Payments</p>
+          <p>Powered by Coinbase CDP • Firecrawl API • x402 Payments</p>
         </div>
       </div>
     </div>

@@ -2,18 +2,7 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'api.freepik.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn-magnific.freepik.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'ai-statics.freepik.com',
-      },
+      // Add image domains here if needed for search result thumbnails
     ],
   },
   allowedDevOrigins: ['*'],

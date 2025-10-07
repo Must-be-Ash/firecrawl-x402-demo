@@ -7,7 +7,7 @@ interface ModernButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
-  variant?: 'primary' | 'secondary' | 'blue';
+  variant?: 'primary' | 'secondary' | 'orange';
 }
 
 export function ModernButton({
@@ -31,22 +31,22 @@ export function ModernButton({
           'hover:shadow-[0_12px_40px_rgba(0,0,0,0.4),0_4px_12px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.15)]',
           'active:shadow-[0_4px_16px_rgba(0,0,0,0.4),inset_0_2px_4px_rgba(0,0,0,0.3)]'
         ],
-        variant === 'blue' && [
-          'bg-gradient-to-b from-[#007AFF] via-[#0056CC] to-[#003D99]',
-          'hover:from-[#1A8FFF] hover:via-[#1F6BDC] hover:to-[#1A52A3]',
-          'active:from-[#003D99] active:via-[#002E73] active:to-[#001F4D]',
-          'hover:shadow-[0_12px_40px_rgba(0,122,255,0.4),0_4px_12px_rgba(0,122,255,0.3),inset_0_1px_0_rgba(255,255,255,0.15)]',
-          'active:shadow-[0_4px_16px_rgba(0,122,255,0.4),inset_0_2px_4px_rgba(0,0,0,0.3)]'
+        variant === 'orange' && [
+          'bg-gradient-to-b from-[#FF8C00] via-[#FF7400] to-[#FF5C00]',
+          'hover:from-[#FFA500] hover:via-[#FF8C00] hover:to-[#FF7400]',
+          'active:from-[#FF5C00] active:via-[#E64D00] active:to-[#CC4400]',
+          'hover:shadow-[0_12px_40px_rgba(255,140,0,0.4),0_4px_12px_rgba(255,140,0,0.3),inset_0_1px_0_rgba(255,255,255,0.15)]',
+          'active:shadow-[0_4px_16px_rgba(255,140,0,0.4),inset_0_2px_4px_rgba(0,0,0,0.3)]'
         ],
         disabled && 'opacity-50 cursor-not-allowed pointer-events-none',
         'hover:scale-[1.02] active:scale-[0.98]',
         className
       )}
       style={{
-        background: variant === 'primary' 
+        background: variant === 'primary'
           ? 'linear-gradient(145deg, #4a4a4a 0%, #3a3a3a 50%, #2a2a2a 100%)'
-          : variant === 'blue' 
-          ? 'linear-gradient(145deg, #007AFF 0%, #0056CC 50%, #003D99 100%)'
+          : variant === 'orange'
+          ? 'linear-gradient(145deg, #FF8C00 0%, #FF7400 50%, #FF5C00 100%)'
           : undefined,
       }}
     >

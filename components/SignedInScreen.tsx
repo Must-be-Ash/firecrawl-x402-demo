@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { useEvmAddress } from "@coinbase/cdp-hooks";
 import { AuthButton, FundModal, type FundModalProps } from "@coinbase/cdp-react";
-import ImageGenerator from "./ImageGenerator";
+import WebScraper from "./WebScraper";
 import { TextShimmer } from "@/components/ui/text-shimmer";
 import { getBuyOptions, createBuyQuote } from "@/lib/onramp-api";
 
@@ -62,9 +62,9 @@ export default function SignedInScreen() {
   return (
     <>
       <div className="header">
-        <h1>Freepik × Coinbase</h1>
+        <h1>Firecrawl × Coinbase</h1>
         <TextShimmer className="subtitle" duration={2.5}>
-          AI Image Generation with Crypto Payments
+          Web Search with Crypto Payments
         </TextShimmer>
       </div>
 
@@ -132,7 +132,7 @@ export default function SignedInScreen() {
         </div>
       </div>
 
-      <ImageGenerator />
+      <WebScraper />
 
       <div className="faq">
         <h2>FAQ</h2>
@@ -142,8 +142,8 @@ export default function SignedInScreen() {
         </div>
        
         <div className="faq-item">
-          <h3>What is Freepik?</h3>
-          <p>Freepik is a platform for a number of AI models, editing tools, and stock assets. <a href="https://docs.freepik.com/introduction" target="_blank" rel="noopener noreferrer"> Explore Freepik here</a>.</p>
+          <h3>What is Firecrawl?</h3>
+          <p>Firecrawl is a web search and scraping API that combines search capabilities with web scraping to return full page content for any query. It handles complex JavaScript rendering and returns structured markdown, HTML, or JSON. <a href="https://www.firecrawl.dev/docs" target="_blank" rel="noopener noreferrer">Explore Firecrawl here</a>.</p>
         </div>
        
         <div className="faq-item">
