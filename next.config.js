@@ -5,7 +5,6 @@ const nextConfig = {
       // Add image domains here if needed for search result thumbnails
     ],
   },
-  allowedDevOrigins: ['*'],
 }
 
 module.exports = nextConfig
