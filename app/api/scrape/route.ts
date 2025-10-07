@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 
+export const dynamic = 'force-dynamic';
+
 // Search endpoint with x402 payment support
 // Uses Firecrawl's search API that combines web search with scraping
 

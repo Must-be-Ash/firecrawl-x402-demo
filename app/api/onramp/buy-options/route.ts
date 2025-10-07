@@ -7,6 +7,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { generateCDPJWT, getCDPCredentials, ONRAMP_API_BASE_URL } from "@/lib/cdp-auth";
 import { convertSnakeToCamelCase } from "@/lib/to-camel-case";
 
+export const dynamic = 'force-dynamic';
+
 type OnrampBuyOptionsResponseRaw = OnrampBuyOptionsSnakeCaseResponse;
 type OnrampBuyOptionsResponse = Awaited<ReturnType<FetchBuyOptions>>;
 
