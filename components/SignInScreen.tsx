@@ -1,6 +1,6 @@
 "use client";
 
-import { AuthButton } from "@coinbase/cdp-react";
+import { SignInModal } from "@coinbase/cdp-react";
 import { TextShimmer } from "@/components/ui/text-shimmer";
 import { ModernButton } from "@/components/ui/modern-button";
 import { DotPattern } from "@/components/ui/dot-pattern";
@@ -30,13 +30,17 @@ export default function SignInScreen() {
           
           <div className="flex justify-center">
             <div className="modern-auth-button">
-              <AuthButton />
+              <SignInModal>
+                <button className="w-full">
+                  <span className="text-white font-medium">Get Started</span>
+                </button>
+              </SignInModal>
             </div>
           </div>
         </div>
 
         <div className="text-xs text-gray-400 space-y-2">
-          <p>Powered by Coinbase CDP • Firecrawl API • x402 Payments</p>
+          <p>Powered by Coinbase • Firecrawl • x402</p>
         </div>
       </div>
     </div>
