@@ -3,15 +3,15 @@
 import { SignInModal } from "@coinbase/cdp-react";
 import { TextShimmer } from "@/components/ui/text-shimmer";
 import { ModernButton } from "@/components/ui/modern-button";
-import { DotPattern } from "@/components/ui/dot-pattern";
+import { GridPattern, HexagonPattern, WavePattern, TrianglePattern, CrossPattern, NoisePattern } from "@/components/ui/background-patterns";
 import { cn } from "@/lib/utils";
 
 export default function SignInScreen() {
   return (
     <div className="signin-container relative h-screen w-screen flex items-center justify-center bg-white overflow-hidden">
-      <DotPattern
+      <GridPattern
         className={cn(
-          "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
+          "[mask-image:radial-gradient(400px_circle_at_center,transparent_0%,transparent_50%,rgba(0,0,0,0.1)_100%)]",
         )}
       />
       <div className="relative z-0 text-center max-w-md mx-auto px-6">
