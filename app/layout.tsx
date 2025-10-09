@@ -5,18 +5,18 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "x402",
-  description: "x402 demo - Firecrawl x Coinbase",
+  description: "This demo showcases a pay-per-use Perplexity-like platform by combining Firecrawl with x402. Users log in with email through Coinbase's embedded wallet, fund their account via Apple Pay or credit card using CDP's onramp, and search the web. Each search deducts $0.01 automatically in the background through x402. The app demonstrates how crypto infrastructure can be abstracted away using CDP services to leverage micropayments through the x402 protocol, creating a sustainable business model where products remain affordable, customers pay only for what they use, platforms eliminate upfront costs, and service providers maintain profitable operations.",
   authors: [{ name: "must_be_ash" }],
   creator: "must_be_ash",
   publisher: "must_be_ash",
-  metadataBase: new URL("https://firecrawl-x402.replit.app"),
+  metadataBase: new URL("https://firecrawl-x402-demo.replit.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "402",
-    description: "x402 demo - Firecrawl x Coinbase",
-    url: "https://firecrawl-x402.replit.app",
+    description: "This demo showcases a pay-per-use Perplexity-like platform by combining Firecrawl with x402. Users log in with email through Coinbase's embedded wallet, fund their account via Apple Pay or credit card using CDP's onramp, and search the web. Each search deducts $0.01 automatically in the background through x402. The app demonstrates how crypto infrastructure can be abstracted away using CDP services to leverage micropayments through the x402 protocol, creating a sustainable business model where products remain affordable, customers pay only for what they use, platforms eliminate upfront costs, and service providers maintain profitable operations.",
+    url: "https://firecrawl-x402-demo.replit.app",
     siteName: "402",
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "402 - x402 demo - Firecrawl x Coinbase",
-    description: "x402 demo - Firecrawl x Coinbase",
+    description: "This demo showcases a pay-per-use Perplexity-like platform by combining Firecrawl with x402. Users log in with email through Coinbase's embedded wallet, fund their account via Apple Pay or credit card using CDP's onramp, and search the web. Each search deducts $0.01 automatically in the background through x402. The app demonstrates how crypto infrastructure can be abstracted away using CDP services to leverage micropayments through the x402 protocol, creating a sustainable business model where products remain affordable, customers pay only for what they use, platforms eliminate upfront costs, and service providers maintain profitable operations.",
     images: ["/og.png"],
     creator: "@must_be_ash",
   },

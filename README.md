@@ -4,11 +4,10 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/Must-be-Ash/firecrawl-x402-demo)
 [![Remix on Replit](https://img.shields.io/badge/Replit-Remix-orange)](https://replit.com/@ashnouruzi/firecrawl-x402-demo)
 
-This app brings together the **x402 Protocol**, **Coinbase Developer Platform's Embedded Wallet**, **Onramp**, and **Firecrawl's Search API** to demonstrate a new type of pay-per-use business model. By enabling micropayments with stablecoins through x402, it creates a digital product that's affordable for customers, profitable for service providers, and sustainable for platforms. Customers pay only for what they use with no commitments. Platforms don't spend upfront to access the service provider. It's a win-win scenario for all three parties.
+This demo showcases a pay-per-use Perplexity-like platform by combining Firecrawl with x402. Users log in with email through Coinbase's embedded wallet, fund their account via Apple Pay or credit card using CDP's onramp, and search the web. Each search deducts $0.01 automatically in the background through x402.
 
-Users don't need any crypto experience. With **Embedded Wallet**, they simply log in with email and a wallet is created for them automatically. **Onramp** lets them top up using Apple Pay (US only) or credit card without KYC. This abstracts away all crypto complexity and puts everything under the hood. Using **x402 Protocol**, users pay with micropayments to search and scrape the web with one click—no wallet signatures required.
+The app demonstrates how crypto infrastructure can be abstracted away using CDP services to leverage micropayments through the x402 protocol, creating a sustainable business model where products remain affordable, customers pay only for what they use, platforms eliminate upfront costs, and service providers maintain profitable operations.
 
-With x402's low transaction fees, Firecrawl's search API accessible through x402, **Embedded Wallet**, and **Onramp** removing crypto UX friction, a new type of digital product becomes possible. One where customers don't overpay, and platforms and service providers don't lose on costs, transaction fees, upfront expenses, or subsidizing usage.
 
 ## What This App Does
 
