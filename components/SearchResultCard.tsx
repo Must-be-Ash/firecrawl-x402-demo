@@ -30,7 +30,7 @@ export default function SearchResultCard({ result, index }: SearchResultCardProp
   return (
     <div className="bg-white rounded-xl md:rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow duration-200">
       {/* Card Header */}
-      <div className="p-3 md:p-4 border-b border-gray-100">
+      <div className="p-3 md:p-3 border-b border-gray-100">
         <div className="flex items-start gap-3">
           {/* Favicon */}
           <Image
@@ -76,9 +76,9 @@ export default function SearchResultCard({ result, index }: SearchResultCardProp
       </div>
 
       {/* Card Body */}
-      <div className="p-3 md:p-4">
+      <div className="p-3 md:p-3">
         {/* Description/Summary */}
-        <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4">
+        <p className="text-sm text-gray-700 leading-relaxed mb-3">
           {result.description || result.summary || result.metadata.description || 'No description available.'}
         </p>
 
@@ -105,12 +105,12 @@ export default function SearchResultCard({ result, index }: SearchResultCardProp
             <div className="hidden md:block">
               <HyperText
                 text="Visit"
-                className="text-white font-medium"
+                className="text-black font-medium"
                 duration={300}
                 animateOnLoad={false}
               />
             </div>
-            <span className="md:hidden text-white font-medium">Visit</span>
+            <span className="md:hidden text-black font-medium">Visit</span>
           </MinimalButton>
 
           {result.markdown && (

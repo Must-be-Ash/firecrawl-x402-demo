@@ -6,7 +6,6 @@ import { AuthButton, FundModal, type FundModalProps } from "@coinbase/cdp-react"
 import { getBuyOptions, createBuyQuote } from "@/lib/onramp-api";
 import { CircleHelp } from "lucide-react";
 import FAQModal from "./FAQModal";
-import { SignoutButton } from "@/components/ui/signout-button";
 
 export default function TopNavigation() {
   const { evmAddress } = useEvmAddress();
@@ -73,148 +72,181 @@ export default function TopNavigation() {
 
   return (
     <>
-      <nav className="bg-white border-b border-gray-200 px-4 md:px-6 lg:px-8 py-3 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
-          {/* Logo/Title */}
-          <div className="flex items-center gap-3">
-            <div>
-              <h1 className="text-lg font-bold text-gray-900">Pay-per-crawl</h1>
-              <p className="text-xs text-gray-500">Powered by Firecrawl & x402</p>
+      <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-2xl px-4">
+        <div className="backdrop-blur-md bg-white/50 border border-gray-200/40 rounded-xl">
+          <div className="flex items-center justify-between h-12 px-4 sm:px-5">
+            {/* Logo/Title Section */}
+            <div className="flex items-center">
+              <div className="flex flex-col justify-center">
+                <p className="text-[11px] text-gray-600 font-medium leading-tight">
+                  Powered by <span className="text-gray-800">Firecrawl</span> & <span className="text-gray-800">x402</span>
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Desktop Wallet Info & Actions */}
-          <div className="hidden md:flex items-center gap-2 md:gap-3">
-            {/* Help Icon */}
-            <button
-              onClick={() => setIsFAQOpen(true)}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-              title="FAQ"
-            >
-              <CircleHelp className="w-5 h-5 text-gray-600" />
-            </button>
-
-            {/* Wallet Address */}
-            <button
-              onClick={copyToClipboard}
-              className="flex items-center gap-1.5 md:gap-2 px-2 md:px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-xs md:text-sm"
-              title={copied ? "Address copied!" : "Click to copy address"}
-            >
-              <span className="font-mono text-gray-700">
-                {`${evmAddress?.slice(0, 6)}...${evmAddress?.slice(-4)}`}
-              </span>
-              {copied ? (
-                <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              ) : (
-                <svg className="w-3.5 h-3.5 md:w-4 md:h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                </svg>
-              )}
-            </button>
-
-            {/* Fund Button */}
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-1.5 md:gap-2 px-3 md:px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors font-medium text-xs md:text-sm"
-            >
-              <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-              <span className="hidden sm:inline">Fund</span>
-              <span className="sm:hidden">+</span>
-            </button>
-
-            {/* Signout Button */}
-            <div className="border-l border-gray-300 pl-2 md:pl-3">
-              <SignoutButton onClick={signOut} />
-            </div>
-          </div>
-
-          {/* Mobile Help & Hamburger Menu */}
-          <div className="md:hidden flex items-center gap-2 mt-6">
-            {/* Help Icon */}
-            <button
-              onClick={() => setIsFAQOpen(true)}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center"
-              aria-label="FAQ"
-            >
-              <CircleHelp className="w-5 h-5 text-gray-600" />
-            </button>
-
-            {/* Hamburger Menu */}
-            <div className="relative">
+            {/* Desktop Actions */}
+            <div className="hidden md:flex items-center gap-2.5">
+              {/* Wallet Address - More Visible */}
               <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors flex items-center justify-center"
-                aria-label="Menu"
+                onClick={copyToClipboard}
+                className="flex items-center gap-2 px-3 py-1.5 bg-white/80 border border-gray-300/60 rounded-lg hover:bg-white hover:border-gray-400/60 transition-colors"
+                title={copied ? "Address copied!" : "Click to copy address"}
               >
-                <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <div className="w-2 h-2 rounded-full bg-gray-500"></div>
+                <span className="font-mono text-xs font-medium text-gray-800">
+                  {`${evmAddress?.slice(0, 6)}...${evmAddress?.slice(-4)}`}
+                </span>
+                {copied ? (
+                  <svg className="w-3.5 h-3.5 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : (
+                  <svg className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                  </svg>
+                )}
+              </button>
+
+              {/* Help Icon - Circle Button */}
+              <button
+                onClick={() => setIsFAQOpen(true)}
+                className="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
+                title="Help & FAQ"
+              >
+                <CircleHelp className="w-4 h-4 text-gray-600" />
+              </button>
+
+              {/* Fund Button - Circle Button */}
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
+                title="Fund Wallet"
+              >
+                <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
               </button>
 
-            {/* Mobile Dropdown Menu */}
-            {isMobileMenuOpen && (
-              <>
-                {/* Backdrop */}
-                <div
-                  className="fixed inset-0 bg-black bg-opacity-25 z-40"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                />
+              {/* Signout Button - Circle Button */}
+              <button
+                onClick={signOut}
+                className="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
+                title="Sign Out"
+              >
+                <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+              </button>
+            </div>
 
-                {/* Menu Panel */}
-                <div className="absolute right-0 top-12 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
-                  {/* Wallet Address */}
-                  <div className="px-4 py-3 border-b border-gray-100">
-                    <p className="text-xs text-gray-500 mb-1">Wallet Address</p>
-                    <button
-                      onClick={copyToClipboard}
-                      className="flex items-center gap-2 w-full px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-                    >
-                      <span className="font-mono text-xs text-gray-700 flex-1 text-left">
-                        {`${evmAddress?.slice(0, 6)}...${evmAddress?.slice(-4)}`}
-                      </span>
-                      {copied ? (
-                        <svg className="w-4 h-4 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                      ) : (
-                        <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                          <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                        </svg>
-                      )}
-                    </button>
-                  </div>
+            {/* Mobile Menu */}
+            <div className="md:hidden flex items-center gap-2">
+              {/* Wallet Address - More Visible */}
+              <button
+                onClick={copyToClipboard}
+                className="flex items-center gap-1.5 px-2.5 py-1 bg-white/80 border border-gray-300/60 rounded-lg hover:bg-white hover:border-gray-400/60 transition-colors"
+                title={copied ? "Address copied!" : "Click to copy address"}
+              >
+                <div className="w-1.5 h-1.5 rounded-full bg-gray-500"></div>
+                <span className="font-mono text-xs font-medium text-gray-800">
+                  {`${evmAddress?.slice(0, 4)}...${evmAddress?.slice(-3)}`}
+                </span>
+              </button>
 
-                  {/* Fund Button */}
-                  <div className="px-4 py-3 border-b border-gray-100">
-                    <button
-                      onClick={() => {
-                        setIsModalOpen(true);
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="flex items-center gap-2 w-full px-4 py-2.5 bg-orange-500 hover:bg-orange-600 text-white rounded-lg transition-colors font-medium text-sm justify-center"
-                    >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                      </svg>
-                      Fund Wallet
-                    </button>
-                  </div>
+              {/* Help Icon - Circle Button */}
+              <button
+                onClick={() => setIsFAQOpen(true)}
+                className="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
+                aria-label="FAQ"
+              >
+                <CircleHelp className="w-4 h-4 text-gray-600" />
+              </button>
 
-                  {/* Signout */}
-                  <div className="px-4 py-3">
-                    <div onClick={() => setIsMobileMenuOpen(false)}>
-                      <SignoutButton onClick={signOut} />
+              {/* Hamburger Menu */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                  className="w-8 h-8 rounded-full bg-white border border-gray-300 flex items-center justify-center hover:border-gray-400 transition-colors"
+                  aria-label="Menu"
+                >
+                  <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
+
+                {/* Mobile Dropdown Menu */}
+                {isMobileMenuOpen && (
+                  <>
+                    {/* Backdrop */}
+                    <div
+                      className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 animate-in fade-in duration-200"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    />
+
+                    {/* Menu Panel */}
+                    <div className="absolute right-0 top-14 w-64 bg-white/95 backdrop-blur-xl rounded-xl shadow-lg border border-gray-200/60 py-3 z-50 animate-in slide-in-from-top-2 duration-200">
+                      {/* Wallet Address */}
+                      <div className="px-4 py-3 border-b border-gray-100/80">
+                        <p className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wider">Wallet Address</p>
+                        <button
+                          onClick={copyToClipboard}
+                          className="group flex items-center gap-2 w-full px-3 py-2 bg-white border border-gray-300/60 hover:border-gray-400/60 rounded-lg transition-colors"
+                        >
+                          <div className="flex items-center gap-1.5 flex-1">
+                            <div className="w-2 h-2 rounded-full bg-gray-500"></div>
+                            <span className="font-mono text-xs font-medium text-gray-800 text-left">
+                              {`${evmAddress?.slice(0, 6)}...${evmAddress?.slice(-4)}`}
+                            </span>
+                          </div>
+                          {copied ? (
+                            <svg className="w-3.5 h-3.5 text-gray-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                          ) : (
+                            <svg className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                              <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                            </svg>
+                          )}
+                        </button>
+                      </div>
+
+                      {/* Fund Button */}
+                      <div className="px-4 py-2.5 border-b border-gray-100/80">
+                        <button
+                          onClick={() => {
+                            setIsModalOpen(true);
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-white border border-gray-300 rounded-lg hover:border-gray-400 transition-colors"
+                        >
+                          <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          </svg>
+                          <span className="text-sm font-medium text-gray-600">Fund Wallet</span>
+                        </button>
+                      </div>
+
+                      {/* Signout */}
+                      <div className="px-4 py-2.5">
+                        <button
+                          onClick={() => {
+                            signOut();
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-white border border-gray-300 rounded-lg hover:border-gray-400 transition-colors"
+                        >
+                          <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                          </svg>
+                          <span className="text-sm font-medium text-gray-600">Sign Out</span>
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </>
-            )}
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>

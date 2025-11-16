@@ -69,12 +69,12 @@ export default function FAQModal({ isOpen, onClose }: FAQModalProps) {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
         onClick={onClose}
       >
         {/* Modal */}
         <div
-          className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+          className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto relative z-[101]"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
