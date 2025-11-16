@@ -11,6 +11,29 @@ import {
 import { cn } from "@/lib/utils";
 import { SearchButton } from "@/components/ui/search-button";
 
+// Hook to detect mobile and get viewport dimensions
+function useViewport() {
+  const [viewport, setViewport] = useState({ width: 0, height: 0, isMobile: false });
+
+  useEffect(() => {
+    const updateViewport = () => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      setViewport({
+        width,
+        height,
+        isMobile: width < 768,
+      });
+    };
+    
+    updateViewport();
+    window.addEventListener('resize', updateViewport);
+    return () => window.removeEventListener('resize', updateViewport);
+  }, []);
+
+  return viewport;
+}
+
 interface ExpandableSearchDockProps {
   query: string;
   setQuery: (query: string) => void;
@@ -33,6 +56,7 @@ export function ExpandableSearchDock({
   const [isExpanded, setIsExpanded] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const dockRef = useRef<HTMLDivElement>(null);
+  const { isMobile, width, height } = useViewport();
 
   // Auto-resize textarea
   const handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -106,15 +130,23 @@ export function ExpandableSearchDock({
         <div
           ref={dockRef}
           className={cn(
-            "fixed bottom-24 left-1/2 -translate-x-1/2 z-50",
+            "fixed bottom-24 z-50",
+            isMobile 
+              ? isExpanded 
+                ? "left-0 right-0 px-4" 
+                : "left-1/2 -translate-x-1/2"
+              : "left-1/2 -translate-x-1/2",
             "origin-center",
             className
           )}
-          style={{ transform: "translateX(-50%)" }}
+          style={!isMobile || !isExpanded ? { transform: "translateX(-50%)" } : undefined}
         >
         <ExpandableCard
           collapsedSize={{ width: 320, height: 48 }}
-          expandedSize={{ width: 800, height: 550 }}
+          expandedSize={isMobile && width > 0
+            ? { width: width - 32, height: Math.min(height - 150, 600) }
+            : { width: 800, height: 550 }
+          }
           className="origin-center"
         >
           {/* Collapsed View: Minimal Dock - Just Input (No Buttons) */}
@@ -158,7 +190,10 @@ export function ExpandableSearchDock({
 
           {/* Expanded View: Settings Panel */}
           <ExpandableContent preset="blur-md" stagger staggerChildren={0.1}>
-            <ExpandableCardContent className="px-4 pb-4 pt-2 max-h-[calc(100vh-200px)] overflow-y-auto">
+            <ExpandableCardContent className={cn(
+              "px-4 pb-4 pt-2 overflow-y-auto",
+              isMobile ? "max-h-[calc(100vh-180px)]" : "max-h-[calc(100vh-200px)]"
+            )}>
               {/* Settings Grid */}
               <div className="bg-gray-50 rounded-xl p-2.5 mb-4 w-fit mx-auto">
                 <div className="flex items-center gap-3" data-no-toggle="true">
