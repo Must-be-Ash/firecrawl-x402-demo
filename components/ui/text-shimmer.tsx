@@ -33,11 +33,11 @@ export function TextShimmer({
       }}
       style={{
         background: `linear-gradient(90deg, 
-          #666666 0%, 
-          #666666 40%, 
-          #cccccc 50%, 
-          #666666 60%, 
-          #666666 100%
+          rgba(255, 255, 255, 0.9) 0%, 
+          rgba(255, 255, 255, 0.9) 40%, 
+          rgba(255, 255, 255, 1) 50%, 
+          rgba(255, 255, 255, 0.9) 60%, 
+          rgba(255, 255, 255, 0.9) 100%
         )`,
         backgroundSize: '300% 100%',
         backgroundClip: 'text',

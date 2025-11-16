@@ -238,7 +238,7 @@ export default function WebScraper() {
           {isLoading && (
             <div className="flex justify-end">
               <div className="bg-orange-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl rounded-tr-sm max-w-xs md:max-w-2xl">
-                <TextShimmer className="text-sm md:text-base font-medium" duration={1.5}>
+                <TextShimmer className="text-sm md:text-base font-medium text-white" duration={1.5}>
                   Searching the web...
                 </TextShimmer>
               </div>
