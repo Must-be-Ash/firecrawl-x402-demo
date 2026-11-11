@@ -1,5 +1,7 @@
 # Pay-per-crawl: Firecrawl x402 Search Demo
 
+> **Outdated, not maintained.** This is an x402 v1 example. x402 v2 has since been released; we recommend updating to v2 ([migration guide](https://docs.x402.org/guides/migration-v1-to-v2)) and updating the Next.js and CDP packages.
+
 [![Live Demo](https://img.shields.io/badge/Demo-Live-green)](https://firecrawl-x402-demo.replit.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/Must-be-Ash/firecrawl-x402-demo)
 [![Remix on Replit](https://img.shields.io/badge/Replit-Remix-orange)](https://replit.com/@ashnouruzi/firecrawl-x402-demo)
